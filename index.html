@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dices v0.1</title>
+    <style type="text/css" rel="stylesheet">
+        html {
+            font-family: Bahnschrift;
+        }
+        button{
+            height: 50px;
+            width: 200px;
+            font-size: 30px;
+            font-weight: bolder;
+            border: 5px solid black;
+        }
+        button:hover{
+            background-color: lightgray;
+            border: 5px solid gray;
+            color: gray;
+        }
+        button:active{
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eleborn - Würfel</h1><br>
+    <div id="attack">1-12</div>
+    <div id="heal">1-6</div>
+    <div id="element">Wasser - Feuer - Erde - Luft</div><br>
+    <button onclick="roll_dices()">Würfeln</button>
+
+    <script>
+        function roll_dices() {
+            var elements = ["Wasser", "Feuer", "Erde", "Luft"];
+            attack.innerHTML = Math.floor(Math.random() * 12) + 1;
+            heal.innerHTML = Math.floor(Math.random() * 6) + 1;;
+            element.innerHTML = elements[Math.floor(Math.random() * 4)];
+            
+            console.log("Angriff: "+ attack.innerHTML + '\n' + "Heilung: " + heal.innerHTML + '\n' + "Element: " + element.innerHTML   );
+        }
+    </script>
+</body>
+</html>
