@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleborn Cubes</title>
+</head>
+<body>
+    <div id="attack">1-12</div>
+    <div id="heal">1-6</div>
+    <div id="element">Wasser - Feuer - Erde - Luft</div>
+    <button onclick="roll_dices()">Roll</button>
+
+    <script>
+        function roll_dices() {
+            var elements = ["Wasser", "Feuer", "Erde", "Luft"];
+            attack.innerHTML = Math.floor(Math.random() * 12) + 1;
+            heal.innerHTML = Math.floor(Math.random() * 6) + 1;;
+            element.innerHTML = elements[Math.floor(Math.random() * 4)];
+            
+            console.log("Angriff: "+ attack.innerHTML + '\n' + "Heilung: " + heal.innerHTML + '\n' + "Element: " + element.innerHTML   );
+        }
+    </script>
+</body>
+</html>
