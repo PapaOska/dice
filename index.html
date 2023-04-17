@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dices v0.2</title>
+    <title>Dices v1.0</title>
     <style type="text/css" rel="stylesheet">
         html {
             font-family: Bahnschrift, "Arial", "Verdana";
@@ -27,7 +27,7 @@
         }
         main{
             border: 5px solid black;
-            border-radius: 5%;
+            border-radius: 0%;
             padding: 20px 10px 20px 10px;
             background-color: lightcyan;
             width: max-content;
@@ -37,25 +37,118 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+        #attack {
+            height: 128px;
+            width: 128px;
+            margin: 5px auto;
+            text-align: center;
+            border: 10px solid black;
+            border-radius: 30%;
+            background-color: red;
+        }
+
+        #heal {
+            height: 128px;
+            width: 128px;
+            margin: 5px auto;
+            text-align: center;
+            border: 10px solid black;
+            border-radius: 30%;
+            background-color: greenyellow;
+        }
+
+        #element {
+            height: 128px;
+            width: 128px;
+            margin: 5px auto;
+            text-align: center;
+            border: 10px solid black;
+            border-radius: 30%;
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
     <main>
         <h1>Eleborn - Würfeln</h1><br>
-        <div id="attack">1-12</div>
-        <div id="heal">1-6</div>
-        <div id="element">Wasser - Feuer - Erde - Luft</div><br>
+        <div id="attack"></div>
+        <div id="heal"></div>
+        <div id="element"></div><br>
         <button onclick="roll_dices()">Würfeln</button>
     </main>
 
     <script>
         function roll_dices() {
-            var elements = ["Wasser", "Feuer", "Erde", "Luft"];
-            attack.innerHTML = Math.floor(Math.random() * 12) + 1;
-            heal.innerHTML = Math.floor(Math.random() * 6) + 1;;
-            element.innerHTML = elements[Math.floor(Math.random() * 4)];
+            var elements = ["water", "fire", "earth", "air"];
+
+            dice_attack = Math.floor(Math.random() * 12) + 1;
+            dice_heal = Math.floor(Math.random() * 6) + 1;
+            dice_element = elements[Math.floor(Math.random() * 4)];
+
+            attack.style.backgroundImage = num2Pic(dice_attack);
+            heal.style.backgroundImage = num2Pic(dice_heal);
+            element.style.backgroundImage = ele2Pic(dice_element);
             
-            console.log("Angriff: "+ attack.innerHTML + '\n' + "Heilung: " + heal.innerHTML + '\n' + "Element: " + element.innerHTML   );
+            
+            console.log("Angriff: "+ dice_attack + '\n' + "Heilung: " + dice_heal + '\n' + "Element: " + dice_element);
+        }
+
+        function ele2Pic(ele) {
+            switch(ele) {
+                case "water":
+                    return "url(Pics/water.png)";
+                    break;
+                case "fire":
+                    return "url(Pics/fire.png)";
+                    break;
+                case "earth":
+                    return "url(Pics/earth.png)";
+                    break;
+                case "air":
+                    return "url(Pics/air.png)";
+                    break;
+            }
+        }
+
+        function num2Pic(num) {
+            switch(num) {
+                case 1:
+                    return "url(Pics/one.png)";
+                    break;
+                case 2:
+                    return "url(Pics/two.png)";
+                    break;
+                case 3:
+                    return "url(Pics/three.png)";
+                    break;
+                case 4:
+                    return "url(Pics/four.png)";
+                    break;
+                case 5:
+                    return "url(Pics/five.png)";
+                    break;
+                case 6:
+                    return "url(Pics/six.png)";
+                    break;
+                case 7:
+                    return "url(Pics/seven.png)";
+                    break;
+                case 8:
+                    return "url(Pics/eight.png)";
+                    break;
+                case 9:
+                    return "url(Pics/nine.png)";
+                    break;
+                case 10:
+                    return "url(Pics/ten.png)";
+                    break;
+                case 11:
+                    return "url(Pics/eleven.png)";
+                    break;
+                case 12:
+                    return "url(Pics/twelve.png)";
+                    break;
+            }
         }
     </script>
 </body>
